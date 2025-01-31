@@ -12,8 +12,9 @@ const jump = () => {
 const loop = setInterval(() => {
     
     const pipePosition = pipe.offsetLeft;
+    /*const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');*/
 
-    if(pipePosition <= 120){
+    if(pipePosition <= 121){
         
         alert('Game Over');
         pipe.style.animation = 'none';
