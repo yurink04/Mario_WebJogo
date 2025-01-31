@@ -12,13 +12,22 @@ const jump = () => {
 const loop = setInterval(() => {
     
     const pipePosition = pipe.offsetLeft;
-    /*const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');*/
+    const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
 
-    if(pipePosition <= 121){
+    if(pipePosition <= 121 &&pipePosition > 0 && marioPosition <80){
         
         alert('Game Over');
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
+
+        mario.style.animation = 'none';
+        mario.style.bottom = `${marioPosition}px`;
+
+        mario.src = 'imagens/game-over.png';
+        mario.style.width = '70px';
+        mario.style.marginLeft = '45px';
+    
+        clearInterval(loop);
     }
 
 }, 10);
